@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import signup, BusinessList  # Убедитесь, что импортируете BusinessList
+from .views import signup, BusinessList, BusinessUpdate
 
 urlpatterns = [
     path('', views.index, name='home'),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('business/<int:pk>/delete/', views.BusinessDelete.as_view(), name='business-delete'),
     path('products/<int:pk>/delete/', views.ProductDelete.as_view(), name='product-delete'),
     path('signup/', signup, name='signup'),
+    path('business/<int:pk>/edit/', BusinessUpdate.as_view(), name='business-update'),
 ]

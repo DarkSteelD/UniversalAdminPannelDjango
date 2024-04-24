@@ -103,3 +103,9 @@ class BusinessList(ListView):
 
         context['businesses'] = businesses
         return context
+    
+class BusinessUpdate(UpdateView):
+    model = Business
+    fields = ['name', 'address']  
+    template_name = 'business/business_form.html'  
+    success_url = '/'

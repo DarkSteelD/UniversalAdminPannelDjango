@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ product.name }}</title>
+    <!-- Подключение Bootstrap CSS через CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>{{ product.name }}</h1>
-    <p>Категория: {{ product.category }}</p>
-    <p>Поставщик: {{ product.supplier }}</p>
-    <p>Цена: {{ product.price }}</p>
-    <p>В наличии: {{ product.in_stock }}</p>
-    <a href="{% url 'product-update' product.pk %}">Редактировать</a>
-    <a href="{% url 'product-delete' product.pk %}">Удалить продукт</a>
+    <div class="container mt-4">
+        <h1>{{ product.name }}</h1>
+        <p class="mb-2"><strong>Категория:</strong> {{ product.category }}</p>
+        <p class="mb-2"><strong>Поставщик:</strong> {{ product.supplier }}</p>
+        <p class="mb-2"><strong>Цена:</strong> {{ product.price }}</p>
+        <p class="mb-2"><strong>В наличии:</strong> {{ product.in_stock }}</p>
+        <a href="{% url 'product-update' product.pk %}" class="btn btn-primary mr-2">Редактировать</a>
+        <a href="{% url 'product-delete' product.pk %}" class="btn btn-danger">Удалить продукт</a>
+    </div>
 
+    <!-- Подключение Bootstrap JS и зависимостей через CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
