@@ -1,10 +1,12 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import signup
+from .views import signup, BusinessList  # Убедитесь, что импортируете BusinessList
+
 urlpatterns = [
     path('', views.index, name='home'),
     path('business/add/', views.BusinessCreate.as_view(), name='business-add'),
+    path('business/', BusinessList.as_view(), name='business-list'),  # Добавляем новый путь для списка бизнесов с пагинацией
     path('products/', views.ProductList.as_view(), name='product-list'),
     path('products/<int:pk>/', views.ProductDetail.as_view(), name='product-detail'),
     path('products/add/', views.ProductCreate.as_view(), name='product-add'),
@@ -15,4 +17,3 @@ urlpatterns = [
     path('products/<int:pk>/delete/', views.ProductDelete.as_view(), name='product-delete'),
     path('signup/', signup, name='signup'),
 ]
-

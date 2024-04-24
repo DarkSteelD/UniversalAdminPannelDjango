@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список бизнесов</title>
+</head>
+<body>
+    <h1>Бизнесы</h1>
+    <ul>
+        {% for business in businesses %}
+            <li>{{ business.name }} - {{ business.address }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if businesses.has_previous %}
+                <a href="?page=1">&laquo; первая</a>
+                <a href="?page={{ businesses.previous_page_number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ businesses.number }} из {{ businesses.paginator.num_pages }}.
+            </span>
+
+            {% if businesses.has_next %}
+                <a href="?page={{ businesses.next_page_number }}">следующая</a>
+                <a href="?page={{ businesses.paginator.num_pages }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
