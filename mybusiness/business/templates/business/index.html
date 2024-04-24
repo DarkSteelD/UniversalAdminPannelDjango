@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Главная страница</title>
+</head>
+<body>
+    <a href="{% url 'login' %}">Вход</a> | <a href="{% url 'logout' %}">Выход</a>
+
+    <h1>Добро пожаловать в Business Portal</h1>
+    <a href="{% url 'business-add' %}">Добавить бизнес</a> |
+    <a href="{% url 'product-list' %}">Список продуктов</a>
+</body>
+</html>

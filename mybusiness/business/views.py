@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Business, Product
 from django.shortcuts import render
@@ -26,3 +26,12 @@ class ProductUpdate(UpdateView):
 
 def index(request):
     return render(request, 'business/index.html', {})
+
+class BusinessDelete(DeleteView):
+    model = Business
+    success_url = reverse_lazy('home')  
+
+class ProductDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy('product-list')
+

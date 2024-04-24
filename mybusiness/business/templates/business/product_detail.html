@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <p>Категория: {{ product.category }}</p>
+    <p>Поставщик: {{ product.supplier }}</p>
+    <p>Цена: {{ product.price }}</p>
+    <p>В наличии: {{ product.in_stock }}</p>
+    <a href="{% url 'product-update' product.pk %}">Редактировать</a>
+    <a href="{% url 'product-delete' product.pk %}">Удалить продукт</a>
+
+</body>
+</html>
